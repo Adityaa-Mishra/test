@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap">
+  <title>User Dashboard - MyHomeMistri</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+</head>
+<body>
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+  </div>
+
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">&#127968;</div>
+        My<span class="accent">Home</span>Mistri
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="providers.html" class="nav-link">Find Providers</a></li>
+        <li><a href="user-dashboard.html" class="nav-link active">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn btn-outline btn-sm" onclick="AuthState.logout()">Logout</button>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay"></div>
+  <div class="nav-drawer">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="providers.html" class="nav-link">Find Providers</a>
+    <a href="user-dashboard.html" class="nav-link active">Dashboard</a>
+    <div class="nav-actions">
+      <button class="btn btn-outline" onclick="AuthState.logout()">Logout</button>
+    </div>
+  </div>
+
+  <main class="dashboard-page">
+    <div class="dashboard-container">
+      <aside class="dashboard-sidebar">
+        <div class="profile-summary-card">
+          <div class="profile-cover-mini"></div>
+          <div class="profile-summary-body">
+            <div class="avatar profile-summary-avatar">GU</div>
+            <h3 class="profile-summary-name">Guest User</h3>
+            <p class="profile-summary-email">guest@myhomemistri.com</p>
+            <button class="btn btn-sm btn-outline" id="editUserProfileBtn" type="button" style="margin-bottom:var(--space-md)">Edit Profile</button>
+            <div class="profile-summary-stats">
+              <div class="profile-summary-stat"><span class="stat-val" data-count="12">0</span><span class="stat-lbl">Bookings</span></div>
+              <div class="profile-summary-stat"><span class="stat-val" data-count="4">0</span><span class="stat-lbl">Saved</span></div>
+              <div class="profile-summary-stat"><span class="stat-val" data-count="6">0</span><span class="stat-lbl">Reviews</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-nav">
+          <a class="dashboard-nav-item active" href="#"><span class="nav-icon">&#127968;</span>Overview</a>
+          <a class="dashboard-nav-item" href="#bookings"><span class="nav-icon">&#128203;</span>My Bookings <span class="nav-badge">3</span></a>
+          <a class="dashboard-nav-item" href="providers.html"><span class="nav-icon">&#128269;</span>Find Provider</a>
+          <a class="dashboard-nav-item" href="chat.html"><span class="nav-icon">&#128172;</span>Messages</a>
+        </div>
+      </aside>
+
+      <section class="dashboard-main">
+        <div class="dashboard-welcome">
+          <div class="welcome-text">
+            <h2>Welcome back</h2>
+            <p>Track bookings, chat with professionals, and manage your home services.</p>
+          </div>
+        </div>
+
+        <div class="quick-actions-grid">
+          <a href="providers.html" class="quick-action-card quick-action-book">
+            <div class="quick-action-icon">&#128295;</div>
+            <div class="quick-action-content">
+              <h4>Book a Service</h4>
+              <p>Find trusted providers near you and create a new booking.</p>
+            </div>
+          </a>
+          <a href="chat.html" class="quick-action-card quick-action-chat">
+            <div class="quick-action-icon">&#128172;</div>
+            <div class="quick-action-content">
+              <h4>Open Chat</h4>
+              <p>Continue conversations with providers and track updates.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-card-icon orange">&#128221;</div><div class="stat-card-value">12</div><div class="stat-card-label">Total Bookings</div><span class="stat-card-trend trend-up">+12%</span></article>
+          <article class="stat-card"><div class="stat-card-icon blue">&#9203;</div><div class="stat-card-value">2</div><div class="stat-card-label">Pending</div></article>
+          <article class="stat-card"><div class="stat-card-icon green">&#9989;</div><div class="stat-card-value">8</div><div class="stat-card-label">Completed</div></article>
+          <article class="stat-card"><div class="stat-card-icon amber">&#128176;</div><div class="stat-card-value">14,300</div><div class="stat-card-label">Spent</div></article>
+        </div>
+
+        <div class="dashboard-section-header" id="bookings">
+          <h3>Recent Bookings</h3>
+          <a href="providers.html" class="btn btn-sm btn-outline">Book New</a>
+        </div>
+        <div class="bookings-list" id="bookingsList"></div>
+
+        <div class="dashboard-section-header" id="reviews">
+          <h3>My Reviews</h3>
+        </div>
+        <div class="bookings-list" id="myReviewsList"></div>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="reviewModalOverlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Leave Review</h3>
+        <button type="button" class="modal-close" id="reviewModalClose">&times;</button>
+      </div>
+      <form id="reviewForm">
+        <div class="rating-selector">
+          <button type="button" class="star-btn">&#9733;</button>
+          <button type="button" class="star-btn">&#9733;</button>
+          <button type="button" class="star-btn">&#9733;</button>
+          <button type="button" class="star-btn">&#9733;</button>
+          <button type="button" class="star-btn">&#9733;</button>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reviewText">Review</label>
+          <textarea class="form-input" id="reviewText" rows="4" placeholder="Write your feedback"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Submit Review</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container"></div>
+
+  <script src="js/global.js" defer></script>
+  <script src="js/user-dashboard.js" defer></script>
+</body>
+</html>
+
+
+

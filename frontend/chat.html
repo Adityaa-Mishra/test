@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap">
+  <title>Chat - MyHomeMistri</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><div class="logo-icon">&#127968;</div>My<span class="accent">Home</span>Mistri</a>
+      <ul class="nav-links">
+        <li><a href="providers.html" class="nav-link">Providers</a></li>
+        <li><a href="user-dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="chat.html" class="nav-link active">Chat</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay"></div>
+  <div class="nav-drawer">
+    <a href="providers.html" class="nav-link">Providers</a>
+    <a href="user-dashboard.html" class="nav-link">Dashboard</a>
+    <a href="chat.html" class="nav-link active">Chat</a>
+  </div>
+
+  <main class="chat-page">
+    <div class="chat-layout">
+      <aside class="conversations-sidebar">
+        <div class="sidebar-chat-header">
+          <h2>Messages</h2>
+          <div class="chat-search-wrap">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" class="chat-search-input" id="conversationSearch" placeholder="Search conversation">
+          </div>
+        </div>
+        <div class="conversations-list" id="conversationsList"></div>
+      </aside>
+
+      <section class="chat-window" id="chatWindow">
+        <div class="chat-window-empty" id="chatWindowEmpty" style="display:none">
+          <div class="empty-icon">&#128172;</div>
+          <h3>Select a conversation</h3>
+        </div>
+
+        <div id="chatBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+          <header class="chat-window-header" id="chatWindowHeader">
+            <button class="mobile-back-btn" id="mobileBackBtn" type="button">&#8592; Back</button>
+            <div class="avatar">RK</div>
+            <div class="chat-header-info">
+              <div class="chat-header-name">Rajesh Kumar</div>
+              <div class="chat-header-status"><span class="status-dot"></span> Online now</div>
+            </div>
+            <div class="chat-header-actions">
+              <button class="chat-action-btn" type="button">&#9432;</button>
+              <button class="chat-action-btn" type="button">&#128465;</button>
+            </div>
+          </header>
+
+          <div class="chat-messages" id="chatMessages"></div>
+
+          <div class="chat-input-area">
+            <div class="chat-input-wrapper">
+              <label class="chat-attach-btn" id="chatAttachBtn" for="chatAttachmentInput" title="Attach a file">&#128206;</label>
+              <input type="file" id="chatAttachmentInput" accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg,.webp,.gif,.zip,.rar" style="display:none">
+              <textarea class="chat-text-input" id="chatInput" placeholder="Type your message"></textarea>
+              <button class="chat-send-btn" id="chatSendBtn" type="button">&#10148;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="toast-container"></div>
+
+  <script src="js/global.js" defer></script>
+  <script src="js/chat-page.js" defer></script>
+</body>
+</html>

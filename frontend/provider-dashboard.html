@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap">
+  <title>Provider Dashboard - MyHomeMistri</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/provider-dashboard.css">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+</head>
+<body>
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-3"></div>
+  </div>
+
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">&#127968;</div>
+        My<span class="accent">Home</span>Mistri
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="provider-dashboard.html" class="nav-link active">Provider Panel</a></li>
+        <li><a href="chat.html" class="nav-link">Messages</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn btn-outline btn-sm" onclick="AuthState.logout()">Logout</button>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay"></div>
+  <div class="nav-drawer">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="provider-dashboard.html" class="nav-link active">Provider Panel</a>
+    <a href="chat.html" class="nav-link">Messages</a>
+    <div class="nav-actions">
+      <button class="btn btn-outline" onclick="AuthState.logout()">Logout</button>
+    </div>
+  </div>
+
+  <main class="provider-dashboard-page">
+    <div class="provider-dashboard-container">
+      <aside>
+        <div class="provider-profile-card">
+          <div class="provider-card-cover-gradient"></div>
+          <div class="provider-card-body-inner">
+            <div class="avatar provider-card-avatar">RK</div>
+            <h3 class="provider-card-name">Rajesh Kumar</h3>
+            <p class="provider-card-specialty">Provider profile</p>
+            <button class="btn btn-sm btn-outline" id="editProviderProfileBtn" type="button" style="margin-bottom:var(--space-md)">Edit Profile</button>
+
+            <div class="availability-toggle" id="availabilityToggle">
+              <div class="toggle-switch on" id="availabilitySwitch"><span class="toggle-knob"></span></div>
+              <span class="availability-text" id="availabilityText">Available now</span>
+            </div>
+
+            <div class="provider-card-stats">
+              <div class="provider-card-stat"><span class="val">4.9</span><span class="lbl">Rating</span></div>
+              <div class="provider-card-stat"><span class="val">128</span><span class="lbl">Jobs</span></div>
+              <div class="provider-card-stat"><span class="val">&#8377;85K</span><span class="lbl">Earnings</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="provider-nav">
+          <a class="provider-nav-item active" href="#"><span class="nav-icon">&#127968;</span>Overview</a>
+          <a class="provider-nav-item" href="#bookings"><span class="nav-icon">&#128203;</span>Bookings</a>
+          <a class="provider-nav-item" href="#portfolio"><span class="nav-icon">&#128247;</span>Portfolio</a>
+          <a class="provider-nav-item" href="chat.html"><span class="nav-icon">&#128172;</span>Messages</a>
+        </div>
+      </aside>
+
+      <section>
+        <div class="earnings-banner">
+          <div class="earnings-info">
+            <div class="earnings-label">Monthly Earnings</div>
+            <div class="earnings-amount">&#8377;85,400</div>
+            <div class="earnings-change">+18% vs last month</div>
+          </div>
+          <div class="earnings-chart-mini">
+            <div class="earnings-bar" style="height:22%"></div>
+            <div class="earnings-bar" style="height:35%"></div>
+            <div class="earnings-bar" style="height:48%"></div>
+            <div class="earnings-bar" style="height:32%"></div>
+            <div class="earnings-bar highlight" style="height:72%"></div>
+            <div class="earnings-bar" style="height:54%"></div>
+          </div>
+        </div>
+
+        <div class="provider-stats-grid">
+          <article class="stat-card"><div class="stat-card-icon orange">&#128221;</div><div class="stat-card-value">31</div><div class="stat-card-label">Total Jobs</div></article>
+          <article class="stat-card"><div class="stat-card-icon blue">&#9203;</div><div class="stat-card-value">4</div><div class="stat-card-label">Pending Jobs</div></article>
+          <article class="stat-card"><div class="stat-card-icon green">&#11088;</div><div class="stat-card-value">4.9</div><div class="stat-card-label">Avg Rating</div></article>
+          <article class="stat-card"><div class="stat-card-icon amber">&#128176;</div><div class="stat-card-value">85K</div><div class="stat-card-label">This Month</div></article>
+        </div>
+
+        <section class="bookings-management" id="bookings">
+          <div class="bookings-management-header">
+            <h3>Booking Management</h3>
+            <div class="tabs">
+              <button class="tab-btn active" data-tab="all" type="button">All</button>
+              <button class="tab-btn" data-tab="pending" type="button">Pending</button>
+              <button class="tab-btn" data-tab="confirmed" type="button">Confirmed</button>
+              <button class="tab-btn" data-tab="completed" type="button">Completed</button>
+            </div>
+          </div>
+          <div class="booking-management-list" id="bookingManagementList"></div>
+        </section>
+
+        <section class="portfolio-management" id="portfolio">
+          <h3 class="section-divider-title">Portfolio Management</h3>
+          <div class="portfolio-upload-area" id="portfolioUploadArea">
+            <div class="upload-icon">&#128228;</div>
+            <h4>Upload your latest work photo/video</h4>
+            <p>Photo or video up to 50MB each</p>
+            <input type="file" id="portfolioFileInput" accept="image/*,video/*" multiple style="display:none">
+          </div>
+
+          <div class="form-group" style="margin-bottom:var(--space-md)">
+            <label class="form-label" for="portfolioCaption">Caption (max 50 words)</label>
+            <textarea class="form-input" id="portfolioCaption" rows="3" placeholder="Describe this work in up to 50 words"></textarea>
+            <div class="portfolio-caption-meta">
+              <span>Max 50 words</span>
+              <span id="captionWordCount">0/50</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="postWorkBtn" style="margin-bottom:var(--space-lg)">Post Work</button>
+          <div class="portfolio-manage-grid" id="portfolioManageGrid"></div>
+        </section>
+
+        <section class="bookings-management" id="provider-reviews">
+          <div class="bookings-management-header">
+            <h3>Reviews Received</h3>
+          </div>
+          <div class="booking-management-list" id="providerReviewsList"></div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <div class="toast-container"></div>
+
+  <script src="js/global.js" defer></script>
+  <script src="js/provider-dashboard.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

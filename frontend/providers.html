@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap">
+  <title>Find Providers – MyHomeMistri</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/providers.css">
+</head>
+<body>
+
+<div class="bg-shapes" aria-hidden="true">
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+</div>
+
+<nav class="navbar scrolled" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">🏠</div>
+      My<span class="accent">Home</span>Mistri
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="providers.html" class="nav-link active">Find Providers</a></li>
+      <li><a href="user-dashboard.html" class="nav-link">Dashboard</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="providers.html" class="nav-link active">Find Providers</a>
+  <a href="user-dashboard.html" class="nav-link">Dashboard</a>
+  <div class="nav-actions">
+    <a href="login.html" class="btn btn-outline">Login</a>
+    <a href="register.html" class="btn btn-primary">Sign Up</a>
+  </div>
+</div>
+
+<div class="providers-page">
+  <!-- Page Header -->
+  <div class="providers-header">
+    <div class="container">
+      <div class="providers-header-content">
+        <div>
+          <h1 class="providers-title">Find Service Providers</h1>
+          <p class="providers-subtitle">Trusted professionals in your area</p>
+        </div>
+        <div class="providers-count" id="providersCount">Loading providers...</div>
+      </div>
+      <div class="providers-search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="providerSearch" placeholder="Search by name, service, or location..." autocomplete="off">
+        <div class="btn btn-primary btn-sm" id="searchBtn" style="cursor:pointer">Search</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-section">
+    <div class="container">
+      <div class="filter-row">
+        <span class="filter-label">Category:</span>
+        <div class="filter-chips" id="filterChips">
+          <button class="filter-chip active" data-filter="all">🏠 All</button>
+          <button class="filter-chip" data-filter="electrician">⚡ Electrician</button>
+          <button class="filter-chip" data-filter="plumber">🔧 Plumber</button>
+          <button class="filter-chip" data-filter="painter">🎨 Painter</button>
+          <button class="filter-chip" data-filter="carpenter">🪚 Carpenter</button>
+          <button class="filter-chip" data-filter="cleaner">🧹 Cleaner</button>
+          <button class="filter-chip" data-filter="ac">❄️ AC Service</button>
+          <button class="filter-chip" data-filter="pest">🐛 Pest Control</button>
+        </div>
+        <div class="filter-right">
+          <select class="sort-select" id="sortSelect">
+            <option value="rating">Top Rated</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="reviews">Most Reviews</option>
+          </select>
+          <div class="view-toggle">
+            <button class="view-btn active" id="gridViewBtn" title="Grid view">⊞</button>
+            <button class="view-btn" id="listViewBtn" title="List view">☰</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Layout -->
+  <div class="container">
+    <div class="providers-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar-filters">
+        <div class="sidebar-card">
+          <h3>Filters <span class="clear-btn" id="clearFilters">Clear all</span></h3>
+
+          <div class="sidebar-filter-group">
+            <div class="sidebar-filter-title">Availability</div>
+            <div class="checkbox-list">
+              <div class="checkbox-item">
+                <input type="checkbox" id="availableNow" checked>
+                <label for="availableNow">Available Now <span class="checkbox-count">48</span></label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="availableToday">
+                <label for="availableToday">Available Today <span class="checkbox-count">120</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-filter-group">
+            <div class="sidebar-filter-title">Min. Rating</div>
+            <div class="rating-filter">
+              <label class="rating-filter-item">
+                <input type="radio" name="rating" value="4.5" checked> ★★★★★ 4.5+
+              </label>
+              <label class="rating-filter-item">
+                <input type="radio" name="rating" value="4"> ★★★★☆ 4.0+
+              </label>
+              <label class="rating-filter-item">
+                <input type="radio" name="rating" value="3"> ★★★☆☆ 3.0+
+              </label>
+              <label class="rating-filter-item">
+                <input type="radio" name="rating" value="0"> All Ratings
+              </label>
+            </div>
+          </div>
+
+          <div class="sidebar-filter-group">
+            <div class="sidebar-filter-title">Max. Price (per hour)</div>
+            <div class="price-range">
+              <input type="range" class="price-slider" id="priceSlider" min="100" max="2000" value="1000" step="50">
+              <div class="price-labels">
+                <span>₹100</span>
+                <span id="priceValue">₹1000</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-filter-group">
+            <div class="sidebar-filter-title">Experience</div>
+            <div class="checkbox-list">
+              <div class="checkbox-item">
+                <input type="checkbox" id="exp1">
+                <label for="exp1">1-3 years <span class="checkbox-count">56</span></label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="exp2" checked>
+                <label for="exp2">3-7 years <span class="checkbox-count">89</span></label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="exp3">
+                <label for="exp3">7+ years <span class="checkbox-count">43</span></label>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="width:100%;justify-content:center" id="applyFiltersBtn">Apply Filters</button>
+        </div>
+      </aside>
+
+      <!-- Providers Grid -->
+      <div class="providers-content">
+        <div class="providers-grid" id="providersGrid">
+          <!-- Populated by JS -->
+        </div>
+        <div class="no-results" id="noResults" style="display:none">
+          <div class="no-results-icon">🔍</div>
+          <h3>No providers found</h3>
+          <p>Try adjusting your filters or search term</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 MyHomeMistri. All rights reserved.
+</footer>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="js/global.js" defer></script>
+<script src="js/providers.js" defer></script>
+</body>
+</html>

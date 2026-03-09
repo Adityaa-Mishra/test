@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap">
+  <title>Login – MyHomeMistri</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div class="bg-shapes" aria-hidden="true">
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+  <div class="bg-shape bg-shape-3"></div>
+</div>
+
+<nav class="navbar scrolled">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">🏠</div>
+      My<span class="accent">Home</span>Mistri
+    </a>
+    <div class="nav-actions">
+      <span style="font-size:0.88rem;color:var(--text-muted)">Don't have an account?</span>
+      <a href="register.html" class="btn btn-primary btn-sm">Sign Up Free</a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="providers.html" class="nav-link">Find Providers</a>
+  <div class="nav-actions">
+    <a href="register.html" class="btn btn-primary">Sign Up Free</a>
+  </div>
+</div>
+
+<div class="auth-page">
+  <div class="auth-container">
+    <!-- Left Panel -->
+    <div class="auth-left">
+      <a href="index.html" class="auth-brand">
+        <div class="logo-icon">🏠</div>
+        My<span class="accent">Home</span>Mistri
+      </a>
+      <h1 class="auth-headline">
+        Welcome <br>Back to Your <br><span class="highlight">Home Hub</span>
+      </h1>
+      <p class="auth-desc">
+        Log in to manage your bookings, chat with providers, and keep your home in perfect shape.
+      </p>
+      <div class="auth-perks">
+        <div class="auth-perk">
+          <div class="auth-perk-icon">📋</div>
+          <div class="auth-perk-text">
+            <h4>Track Your Bookings</h4>
+            <p>See status updates in real-time</p>
+          </div>
+        </div>
+        <div class="auth-perk">
+          <div class="auth-perk-icon">💬</div>
+          <div class="auth-perk-text">
+            <h4>Chat with Providers</h4>
+            <p>Direct messaging made easy</p>
+          </div>
+        </div>
+        <div class="auth-perk">
+          <div class="auth-perk-icon">⭐</div>
+          <div class="auth-perk-text">
+            <h4>Leave Reviews</h4>
+            <p>Share your experience with others</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Auth Card -->
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <h2>Sign In</h2>
+        <p>Welcome back! Enter your credentials to continue.</p>
+      </div>
+
+      <!-- Role Toggle -->
+      <div class="role-toggle" id="roleToggle">
+        <button class="role-btn active" data-role="user" type="button">👤 Customer</button>
+        <button class="role-btn" data-role="provider" type="button">🔧 Provider</button>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="input-wrapper">
+          <span class="input-icon">✉️</span>
+          <input type="email" id="loginEmail" placeholder="Email address" autocomplete="email">
+          <div class="input-error-msg" id="emailError">⚠️ Please enter a valid email.</div>
+        </div>
+
+        <div class="input-wrapper">
+          <span class="input-icon">🔒</span>
+          <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password">
+          <span class="toggle-password" id="togglePassword" title="Show/hide password">👁️</span>
+          <div class="input-error-msg" id="passwordError">⚠️ Password must be at least 6 characters.</div>
+        </div>
+
+        <div class="forgot-link">
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-submit-btn" id="loginBtn">
+          <span id="loginBtnText">Sign In</span>
+          <div class="spinner" id="loginSpinner" style="display:none"></div>
+        </button>
+      </form>
+
+
+
+      <div class="auth-form-footer">
+        Don't have an account? <a href="register.html">Create one free</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="js/global.js" defer></script>
+<script src="js/auth.js" defer></script>
+</body>
+</html>

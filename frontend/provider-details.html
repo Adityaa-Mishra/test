@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap">
+  <title>Provider Details - MyHomeMistri</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/provider-details.css">
+</head>
+<body>
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><div class="logo-icon">??</div>My<span class="accent">Home</span>Mistri</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="providers.html" class="nav-link active">Find Providers</a></li>
+      </ul>
+      <div class="nav-actions"><a href="chat.html" class="btn btn-primary btn-sm">Open Chat</a></div>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay"></div>
+  <div class="nav-drawer">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="providers.html" class="nav-link active">Find Providers</a>
+    <div class="nav-actions">
+      <a href="chat.html" class="btn btn-primary">Open Chat</a>
+    </div>
+  </div>
+
+  <main class="provider-details-page">
+    <section class="provider-cover">
+      <div class="provider-cover-overlay"></div>
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="sep">/</span>
+          <a href="providers.html">Providers</a>
+          <span class="sep">/</span>
+          <span class="current">Rajesh Kumar</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="provider-profile-section">
+      <div class="container">
+        <div class="provider-profile-grid">
+          <article class="profile-main-card">
+            <header class="profile-header">
+              <div class="profile-avatar-wrap">
+                <div class="avatar">RK</div>
+                <div class="profile-verified-icon">?</div>
+              </div>
+              <div class="profile-info">
+                <h1 class="profile-name">Rajesh Kumar</h1>
+                <div class="profile-specialty-tag">? Electrician</div>
+                <div class="profile-meta-row">
+                  <div class="profile-meta-item"><span class="icon">??</span> Delhi</div>
+                  <div class="profile-meta-item"><span class="icon">??</span> 8 years experience</div>
+                  <div class="profile-meta-item"><span class="icon">?</span> Verified Professional</div>
+                </div>
+              </div>
+            </header>
+
+            <div class="profile-stats-row">
+              <div class="profile-stat"><span class="profile-stat-number" id="statRating">0.0</span><span class="profile-stat-label">Rating</span></div>
+              <div class="profile-stat"><span class="profile-stat-number" id="statReviews">0</span><span class="profile-stat-label">Reviews</span></div>
+              <div class="profile-stat"><span class="profile-stat-number" id="statJobsDone">0</span><span class="profile-stat-label">Jobs Done</span></div>
+              <div class="profile-stat"><span class="profile-stat-number" id="statOnTime">0%</span><span class="profile-stat-label">On Time</span></div>
+            </div>
+
+            <h3 class="profile-section-title">About</h3>
+            <p class="about-text">Loading provider details...</p>
+
+            <h3 class="profile-section-title">Skills</h3>
+            <div class="skills-grid">
+              <span class="skill-tag">Wiring Repair</span>
+              <span class="skill-tag">Panel Upgrades</span>
+              <span class="skill-tag">Ceiling Fan Fitting</span>
+              <span class="skill-tag">Switchboard Work</span>
+              <span class="skill-tag">Inverter Setup</span>
+            </div>
+
+            <h3 class="profile-section-title">Portfolio</h3>
+            <div class="portfolio-grid">
+              <div class="portfolio-item">?<div class="portfolio-item-overlay">View</div></div>
+              <div class="portfolio-item">??<div class="portfolio-item-overlay">View</div></div>
+              <div class="portfolio-item">??<div class="portfolio-item-overlay">View</div></div>
+              <div class="portfolio-item">???<div class="portfolio-item-overlay">View</div></div>
+              <div class="portfolio-item">??<div class="portfolio-item-overlay">View</div></div>
+              <div class="portfolio-item">??<div class="portfolio-item-overlay">View</div></div>
+            </div>
+
+            <h3 class="profile-section-title">Reviews</h3>
+            <div class="reviews-summary">
+              <div class="reviews-big-rating">
+                <div class="big-rating-number">0.0</div>
+                <div class="big-rating-label">No reviews yet</div>
+              </div>
+              <div class="rating-breakdown">
+                <div class="rating-bar-row"><span class="rating-bar-label">5 star</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span class="rating-bar-count">0</span></div>
+                <div class="rating-bar-row"><span class="rating-bar-label">4 star</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span class="rating-bar-count">0</span></div>
+                <div class="rating-bar-row"><span class="rating-bar-label">3 star</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span class="rating-bar-count">0</span></div>
+              </div>
+            </div>
+          </article>
+
+          <aside class="booking-sidebar">
+            <div class="booking-card">
+              <div class="booking-rate-display">
+                <span class="rate-amount" id="ratePerHour" data-rate="600">?600</span>
+                <span class="rate-period">per hour</span>
+              </div>
+
+              <div class="booking-form-group">
+                <label for="bookingDate">Preferred Date</label>
+                <input class="booking-input" id="bookingDate" type="date">
+              </div>
+
+              <div class="booking-form-group">
+                <label for="bookingHours">Estimated Hours</label>
+                <input class="booking-input" id="bookingHours" type="number" min="1" value="2">
+              </div>
+
+              <div class="booking-form-group">
+                <label for="bookingAddress">Service Address</label>
+                <input class="booking-input" id="bookingAddress" type="text" placeholder="Enter full address">
+              </div>
+
+              <div class="booking-summary">
+                <div class="booking-summary-row"><span>Work Duration</span><span id="summaryHours">2 hours</span></div>
+                <div class="booking-summary-row"><span>Subtotal</span><span id="summarySubtotal">?1200</span></div>
+                <div class="booking-summary-row total"><span>Total</span><span id="summaryTotal">?1260</span></div>
+              </div>
+
+              <button class="book-now-btn" id="bookNowBtn" type="button">Book Now</button>
+              <button class="contact-btn" id="contactBtn" type="button">Contact Provider</button>
+
+              <div class="trust-badges">
+                <div class="trust-badge"><span class="icon">?</span> Verified Background</div>
+                <div class="trust-badge"><span class="icon">???</span> Work Guarantee</div>
+                <div class="trust-badge"><span class="icon">??</span> Secure Payments</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast-container"></div>
+
+  <script src="js/global.js" defer></script>
+  <script src="js/provider-details.js" defer></script>
+</body>
+</html>

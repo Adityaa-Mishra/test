@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap">
+  <title>Register – MyHomeMistri</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div class="bg-shapes" aria-hidden="true">
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+</div>
+
+<nav class="navbar scrolled">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">🏠</div>
+      My<span class="accent">Home</span>Mistri
+    </a>
+    <div class="nav-actions">
+      <span style="font-size:0.88rem;color:var(--text-muted)">Already have an account?</span>
+      <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="providers.html" class="nav-link">Find Providers</a>
+  <div class="nav-actions">
+    <a href="login.html" class="btn btn-outline">Sign In</a>
+  </div>
+</div>
+
+<div class="auth-page" style="padding-top:120px">
+  <div class="auth-container">
+    <!-- Left -->
+    <div class="auth-left">
+      <a href="index.html" class="auth-brand">
+        <div class="logo-icon">🏠</div>
+        My<span class="accent">Home</span>Mistri
+      </a>
+      <h1 class="auth-headline">
+        Join India's <br>Largest <br><span class="highlight">Home Services</span><br>Network
+      </h1>
+      <p class="auth-desc">
+        Whether you need home services or want to offer your skills, we've got you covered. Create your account today.
+      </p>
+      <div class="auth-perks">
+        <div class="auth-perk">
+          <div class="auth-perk-icon">🆓</div>
+          <div class="auth-perk-text">
+            <h4>Free to Join</h4>
+            <p>No registration fees or hidden charges</p>
+          </div>
+        </div>
+        <div class="auth-perk">
+          <div class="auth-perk-icon">🔒</div>
+          <div class="auth-perk-text">
+            <h4>Secure & Private</h4>
+            <p>Your data is encrypted and safe</p>
+          </div>
+        </div>
+        <div class="auth-perk">
+          <div class="auth-perk-icon">📱</div>
+          <div class="auth-perk-text">
+            <h4>Always Accessible</h4>
+            <p>Works on all devices, anytime</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <h2>Create Account</h2>
+        <p>Join thousands of happy users today. It's completely free!</p>
+      </div>
+
+      <!-- Role Toggle -->
+      <div class="role-toggle" id="roleToggle">
+        <button class="role-btn active" data-role="user" type="button">👤 I need services</button>
+        <button class="role-btn" data-role="provider" type="button">🔧 I provide services</button>
+      </div>
+
+      <form id="registerForm" novalidate>
+        <div class="form-row">
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input type="text" id="firstName" placeholder="First name" autocomplete="given-name">
+            <div class="input-error-msg" id="firstNameError">⚠️ First name is required.</div>
+          </div>
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input type="text" id="lastName" placeholder="Last name" autocomplete="family-name">
+            <div class="input-error-msg" id="lastNameError">⚠️ Last name is required.</div>
+          </div>
+        </div>
+
+        <div class="input-wrapper">
+          <span class="input-icon">✉️</span>
+          <input type="email" id="regEmail" placeholder="Email address" autocomplete="email">
+          <div class="input-error-msg" id="regEmailError">⚠️ Please enter a valid email.</div>
+        </div>
+
+        <div class="input-wrapper">
+          <span class="input-icon">📱</span>
+          <input type="tel" id="phone" placeholder="Phone number" autocomplete="tel">
+          <div class="input-error-msg" id="phoneError">⚠️ Please enter a valid phone number.</div>
+        </div>
+
+        <div class="input-wrapper">
+          <span class="input-icon">📍</span>
+          <input type="text" id="city" placeholder="Your city" autocomplete="address-level2">
+          <div class="input-error-msg" id="cityError">⚠️ City is required.</div>
+        </div>
+
+        <div class="input-wrapper">
+          <span class="input-icon">🔒</span>
+          <input type="password" id="regPassword" placeholder="Create password" autocomplete="new-password">
+          <span class="toggle-password" id="toggleRegPassword">👁️</span>
+          <div class="input-error-msg" id="regPasswordError">⚠️ Password must be at least 8 characters.</div>
+        </div>
+
+        <div class="input-wrapper">
+          <span class="input-icon">🔒</span>
+          <input type="password" id="confirmPassword" placeholder="Confirm password" autocomplete="new-password">
+          <div class="input-error-msg" id="confirmPasswordError">⚠️ Passwords do not match.</div>
+        </div>
+
+        <!-- Provider-specific fields -->
+        <div class="provider-fields" id="providerFields">
+          <div class="provider-fields-header">Provider Information</div>
+
+          <div class="input-wrapper">
+            <span class="input-icon">💼</span>
+            <input type="number" id="experience" placeholder="Years of experience" min="0" max="50">
+            <div class="input-error-msg" id="experienceError">⚠️ Please enter years of experience.</div>
+          </div>
+
+          <div class="input-wrapper" style="position:static">
+            <label class="form-label" style="margin-bottom:8px;display:block">Select your specialties</label>
+            <div class="specialty-grid">
+              <div class="specialty-item">
+                <input type="checkbox" id="spec-electrician" name="specialty" value="electrician">
+                <label class="specialty-label" for="spec-electrician">⚡ Electrician</label>
+              </div>
+              <div class="specialty-item">
+                <input type="checkbox" id="spec-plumber" name="specialty" value="plumber">
+                <label class="specialty-label" for="spec-plumber">🔧 Plumber</label>
+              </div>
+              <div class="specialty-item">
+                <input type="checkbox" id="spec-painter" name="specialty" value="painter">
+                <label class="specialty-label" for="spec-painter">🎨 Painter</label>
+              </div>
+              <div class="specialty-item">
+                <input type="checkbox" id="spec-carpenter" name="specialty" value="carpenter">
+                <label class="specialty-label" for="spec-carpenter">🪚 Carpenter</label>
+              </div>
+              <div class="specialty-item">
+                <input type="checkbox" id="spec-cleaner" name="specialty" value="cleaner">
+                <label class="specialty-label" for="spec-cleaner">🧹 Cleaner</label>
+              </div>
+              <div class="specialty-item">
+                <input type="checkbox" id="spec-ac" name="specialty" value="ac">
+                <label class="specialty-label" for="spec-ac">❄️ AC Tech</label>
+              </div>
+            </div>
+            <div class="input-error-msg" id="specialtyError">⚠️ Select at least one specialty.</div>
+          </div>
+
+          <div class="input-wrapper">
+            <span class="input-icon">💰</span>
+            <input type="number" id="hourlyRate" placeholder="Hourly rate (₹)" min="0">
+            <div class="input-error-msg" id="rateError">⚠️ Please enter your hourly rate.</div>
+          </div>
+
+          <div class="input-wrapper">
+            <span class="input-icon">📝</span>
+            <input type="text" id="bio" placeholder="Brief description of your services">
+          </div>
+        </div>
+
+        <!-- Terms -->
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:var(--space-md);margin-top:var(--space-sm)">
+          <input type="checkbox" id="terms" style="margin-top:3px;accent-color:var(--primary);width:18px;height:18px;cursor:pointer">
+          <label for="terms" style="font-size:0.85rem;color:var(--text-muted);cursor:pointer;line-height:1.5">
+            I agree to the <a href="#" style="color:var(--primary);font-weight:600">Terms of Service</a> and <a href="#" style="color:var(--primary);font-weight:600">Privacy Policy</a>
+          </label>
+        </div>
+        <div class="input-error-msg" id="termsError" style="margin-top:-12px;margin-bottom:12px">⚠️ You must accept the terms.</div>
+
+        <button type="submit" class="auth-submit-btn" id="registerBtn">
+          <span id="registerBtnText">Create Account</span>
+          <div class="spinner" id="registerSpinner" style="display:none"></div>
+        </button>
+      </form>
+
+      <div class="auth-form-footer">
+        Already have an account? <a href="login.html">Sign in</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="js/global.js" defer></script>
+<script src="js/auth.js" defer></script>
+</body>
+</html>
